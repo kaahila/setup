@@ -1,40 +1,40 @@
 $wallpaperPath = -join ((Get-Location).path, "\one-punch-man-background.jpg")
 
-# #Winget to install dbeaver
-# winget install dbeaver.dbeaver -s winget
+#Winget to install dbeaver
+winget install dbeaver.dbeaver -s winget
 
-# #Winget to install oh-my-posh
-# winget install JanDeDobbeleer.OhMyPosh -s winget
+#Winget to install oh-my-posh
+winget install JanDeDobbeleer.OhMyPosh -s winget
 
-# #Winget zen browser
-# winget install Zen-Team.Zen-Browser.Optimized -s winget
+#Winget zen browser
+winget install Zen-Team.Zen-Browser.Optimized -s winget
 
-# #winget to install 7zip
-# winget install 7zip.7zip -s winget
+#winget to install 7zip
+winget install 7zip.7zip -s winget
 
-# #winget to install putty
-# winget install putty.putty -s winget
+#winget to install putty
+winget install putty.putty -s winget
 
-# #winget to install notepad++
-# winget install notepadplusplus.notepadplusplus -s winget
+#winget to install notepad++
+winget install notepadplusplus.notepadplusplus -s winget
 
-# #winget to install vscode
-# winget install microsoft.vscode -s winget
+#winget to install vscode
+winget install microsoft.vscode -s winget
 
-# #winget to install python 3.13.0
-# winget install Python.Python.3.13 -s winget
+#winget to install python 3.13.0
+winget install Python.Python.3.13 -s winget
 
-# #winget to install vlc
-# winget install VideoLAN.VLC -s winget
+#winget to install vlc
+winget install VideoLAN.VLC -s winget
 
-# #winget to install winscp
-# winget install WinSCP.WinSCP -s winget
+#winget to install winscp
+winget install WinSCP.WinSCP -s winget
 
-# #winget to install windirstat
-# winget install WinDirStat.WinDirStat -s winget
+#winget to install windirstat
+winget install WinDirStat.WinDirStat -s winget
 
-# #winget to install winrar
-# winget install RARLab.WinRAR -s winget
+#winget to install winrar
+winget install RARLab.WinRAR -s winget
 
 #install git
 winget install Git.Git -s winget
