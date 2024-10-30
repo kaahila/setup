@@ -53,9 +53,7 @@ if ($myWindowsPrincipal.IsInRole($adminRole)) {
 '@
     [Wallpaper]::SetWallpaper($wallpaperPath)
 
-
     # We are not running "as Administrator" - so relaunch as administrator
-
     # Create a new process object that starts PowerShell
     $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
 
@@ -80,7 +78,7 @@ winget install dbeaver.dbeaver -s winget
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
 #Winget zen browser
-winget install Zen-Team.Zen-Browser.Optimized -s winget
+winget install Zen-Team.Zen-Browser.Optimized -s winget --location "C:\Program Files\Zen Browser"
 
 #winget to install 7zip
 winget install 7zip.7zip -s winget
@@ -123,3 +121,6 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path", [System.Environ
 Write-Output "Environment variables reloaded."
 
 oh-my-posh font install JetBrainsMono
+
+[System.Diagnostics.Process]::Start("zen", "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/")
+[System.Diagnostics.Process]::Start("Code")
