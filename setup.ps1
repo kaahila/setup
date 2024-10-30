@@ -12,21 +12,31 @@ if ($myWindowsPrincipal.IsInRole($adminRole)) {
     $Host.UI.RawUI.WindowTitle = $myInvocation.MyCommand.Definition + "(Elevated)"
     $Host.UI.RawUI.BackgroundColor = "DarkBlue"
     clear-host
-}
-else {
-    $wallpaperPath = -join ((Get-Location).path, "\one-punch-man-background.jpg")
+} else {
+    #Load the Background image
+    # Define the URL and the destination path
+    $url = "https://raw.githubusercontent.com/kaahila/setup/refs/heads/master/background.jpg"
+    $wallpaperPath = "$env:USERPROFILE\Pictures\background.jpg"
+
+    # Download the file
+    Invoke-WebRequest -Uri $url -OutFile $wallpaperPath
+
+    # Confirm download
+    Write-Output "Background Image downloaded to $wallpaperPath"
 
     #Does $Profile exist?
     if (-not (Test-Path $Profile)) {
         New-Item -Path $PROFILE -Type File -Force
     }
 
-    #Clear the profile script
-    Clear-Content $PROFILE
-
     #Write to the profile scrip
-    Add-Content $PROFILE ( -join ("oh-my-posh init pwsh --config 'C:\Users\", ($Env:UserName), "\AppData\Local\Programs\oh-my-posh\themes\if_tea.omp.json' | Invoke-Expression"))
-
+    if (Select-String -Path $PROFILE -Pattern "oh-my-posh init pwsh" -Quiet) {
+        Write-Output "oh-my-posh is already initialized in the profile script."
+    } else {
+        Add-Content $PROFILE ( -join ("oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH\if_tea.omp.json' | Invoke-Expression"))
+        Write-Output "Initialized oh-my-posh in the profile script."
+    }
+    
     #Set Desktop background
     Add-Type -TypeDefinition @'
     using System.Runtime.InteropServices;
@@ -62,7 +72,7 @@ else {
     exit
 }
 
-
+Write-Output "Installing Programms."
 #Winget to install dbeaver
 winget install dbeaver.dbeaver -s winget
 
@@ -103,6 +113,13 @@ winget install RARLab.WinRAR -s winget
 winget install Git.Git -s winget
 
 #winget to install java 17 and 21
-winget install Microsoft.OpenJDK.17 -s winget
 winget install Microsoft.OpenJDK.21 -s winget
+winget install Microsoft.OpenJDK.17 -s winget
 
+# Reload environment variables
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine) + ";" +
+            [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+
+Write-Output "Environment variables reloaded."
+
+oh-my-posh font install JetBrainsMono
