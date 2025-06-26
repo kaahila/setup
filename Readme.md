@@ -15,3 +15,7 @@ This single command will download and run the script with the game installation 
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex "& { $( (New-Object Net.WebClient).DownloadString('[https://raw.githubusercontent.com/kaahila/setup/refs/heads/master/setup.ps1](https://raw.githubusercontent.com/kaahila/setup/refs/heads/master/setup.ps1)') ) } -installGames"
 ```
+
+### Alternative with Ninite
+
+[to ninite](https://ninite.com/7zip-adoptjdkx17-adoptjdkx21-chrome-greenshot-notepadplusplus-putty-pythonx3-vlc-vscode-windirstat-winrar-winscp/)
