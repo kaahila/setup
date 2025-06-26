@@ -150,6 +150,9 @@ if ($installGames) {
 
     # Install Playnite
     winget install Playnite.Playnite -s winget --accept-package-agreements --accept-source-agreements
+
+    # Install BattleNet
+    winget install Blizzard.BattleNet -s winget --accept-package-agreements --accept-source-agreements
 } else {
     Write-Output "Skipping game client installation. To install them, run the script with the '-installGames' switch."
 }
